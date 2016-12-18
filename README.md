@@ -8,7 +8,7 @@ This is a fork form [Spark](https://github.com/sequenceiq/docker-spark) 1.6.0 do
 
 This Docker image depends on [Hadoop Docker](https://github.com/sequenceiq/hadoop-docker) image from SequenceIQ, available at the SequenceIQ [GitHub](https://github.com/sequenceiq) page.
 
-##Pull the image from Docker Repository
+## Pull the image from Docker Repository
 ```
 docker pull aghorbani/spark:2.0.2
 ```
