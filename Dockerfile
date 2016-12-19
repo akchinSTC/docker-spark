@@ -1,5 +1,5 @@
 FROM sequenceiq/hadoop-docker:2.7.1
-MAINTAINER Asghar Ghorbani gorbani59@gmail.com
+MAINTAINER Asghar Ghorbani ghorbani59@gmail.com
 
 
 # Install Spark 2
