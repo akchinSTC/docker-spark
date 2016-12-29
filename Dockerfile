@@ -18,6 +18,12 @@ RUN $BOOTSTRAP && \
 
 ENV YARN_CONF_DIR $HADOOP_PREFIX/etc/hadoop
 ENV PATH $PATH:$SPARK_HOME/bin:$HADOOP_PREFIX/bin
+
+# Fix yarn vmem error (see this: https://a-ghorbani.github.io/2016/12/23/spark-on-yarn-and-java-8-and-virtual-memory-error)
+COPY yarn-vmem-fix.xml yarn-vmem-fix.xml
+RUN sed -i '/<configuration>/r yarn-vmem-fix.xml'  $YARN_CONF_DIR/yarn-site.xml && \
+    rm yarn-vmem-fix.xml
+
 # update boot script
 COPY bootstrap.sh /etc/bootstrap.sh
 RUN chown root.root /etc/bootstrap.sh
