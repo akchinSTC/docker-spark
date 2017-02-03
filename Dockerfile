@@ -4,17 +4,19 @@
 FROM sequenceiq/hadoop-docker:2.7.1
 MAINTAINER Asghar Ghorbani [https://de.linkedin.com/in/aghorbani]
 
-# Install Spark 2
+ENV SPARK_VER 2.1.0
+
+# Install Spark
 ENV SPARK_HOME /usr/local/spark
-RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-2.0.2-bin-hadoop2.7.tgz | tar -xz -C /usr/local/ && \
+RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VER}-bin-hadoop2.7.tgz | tar -xz -C /usr/local/ && \
     cd /usr/local && \
-    ln -s spark-2.0.2-bin-hadoop2.7 spark && \
+    ln -s spark-${SPARK_VER}-bin-hadoop2.7 spark && \
     mkdir $SPARK_HOME/yarn-remote-client
 ADD yarn-remote-client $SPARK_HOME/yarn-remote-client
 
 RUN $BOOTSTRAP && \
     $HADOOP_PREFIX/bin/hadoop dfsadmin -safemode leave && \
-    $HADOOP_PREFIX/bin/hdfs dfs -put $SPARK_HOME-2.0.2-bin-hadoop2.7/jars /spark
+    $HADOOP_PREFIX/bin/hdfs dfs -put $SPARK_HOME-${SPARK_VER}-bin-hadoop2.7/jars /spark
 
 ENV YARN_CONF_DIR $HADOOP_PREFIX/etc/hadoop
 ENV PATH $PATH:$SPARK_HOME/bin:$HADOOP_PREFIX/bin
