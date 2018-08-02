@@ -72,7 +72,7 @@ spark-submit \
 --deploy-mode cluster \
 --executor-memory 1G \
 --num-executors 2 \
-$SPARK_HOME/examples/jars/spark-examples_2.11-2.0.2.jar
+$SPARK_HOME/examples/jars/spark-examples_2.11-2.1.0.jar
 ```
 
 Estimating Pi (yarn-client mode):
@@ -85,7 +85,7 @@ spark-submit \
 --deploy-mode client \
 --executor-memory 1G \
 --num-executors 2 \
-$SPARK_HOME/examples/jars/spark-examples_2.11-2.0.2.jar 
+$SPARK_HOME/examples/jars/spark-examples_2.11-2.1.0.jar 
 ```
 
 ### Submitting from the outside of the container
