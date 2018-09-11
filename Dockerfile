@@ -4,11 +4,11 @@
 FROM sequenceiq/hadoop-docker:2.7.1
 MAINTAINER Asghar Ghorbani [https://de.linkedin.com/in/aghorbani]
 
-ENV SPARK_VER 2.1.0
+ENV SPARK_VER 2.3.1
 
 # Install Spark
 ENV SPARK_HOME /usr/local/spark
-RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VER}-bin-hadoop2.7.tgz | tar -xz -C /usr/local/ && \
+RUN curl -s curl -s http://apache.cs.utah.edu/spark/spark-${SPARK_VER}/spark-${SPARK_VER}-bin-hadoop2.7.tgz | tar -xz -C /usr/local/ && \
     cd /usr/local && \
     ln -s spark-${SPARK_VER}-bin-hadoop2.7 spark && \
     mkdir $SPARK_HOME/yarn-remote-client
