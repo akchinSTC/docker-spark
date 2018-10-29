@@ -8,7 +8,7 @@ ENV SPARK_VER 2.3.1
 
 # Install Spark
 ENV SPARK_HOME /usr/local/spark
-RUN curl -s curl -s http://apache.cs.utah.edu/spark/spark-${SPARK_VER}/spark-${SPARK_VER}-bin-hadoop2.7.tgz | tar -xz -C /usr/local/ && \
+RUN curl -s http://apache.cs.utah.edu/spark/spark-${SPARK_VER}/spark-${SPARK_VER}-bin-hadoop2.7.tgz | tar -xz -C /usr/local/ && \
     cd /usr/local && \
     ln -s spark-${SPARK_VER}-bin-hadoop2.7 spark && \
     mkdir $SPARK_HOME/yarn-remote-client
