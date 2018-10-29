@@ -2,7 +2,7 @@
 # This docker support Spark 2
 
 FROM sequenceiq/hadoop-docker:2.7.1
-MAINTAINER Asghar Ghorbani [https://de.linkedin.com/in/aghorbani]
+MAINTAINER Alan Chin [akchin@us.ibm.com]
 
 ENV SPARK_VER 2.3.1
 
